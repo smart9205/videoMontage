@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Video</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">    
+    <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
+</head>
+<style>
+    body{
+        background-image: url('/static/bg.jpg');
+    }
+
+    @media (max-width: 768px) {
+        .videodiv{
+            flex-direction: column;
+        }
+    }
+
+    
+    .main {
+        margin-left: 30px; /* Set the left margin */
+        margin-right: 30px; /* Set the right margin */
+        margin-top: 50px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .button-container {
+        display: flex;
+        gap: 10px;
+    }
+    
+</style>
+<body>
+    <!-- Just an image -->
+    
+    <div class="main">
+        <nav class="navbar navbar-light ">
+            <a class="navbar-brand" href="#">
+                <img src="/static/logo.png" alt="Logo" style="height: 60px;">                
+            </a> 
+        </nav>
+        <form id="videoForm" onsubmit="event.preventDefault();">
+            <div id="selectForm" class="form-group" style="margin-bottom: 30px;">
+                <label for="file" style="margin-bottom: 10px; font-size: medium;">Select a video file for Montage </label>
+                <input type="file" class="form-control-file" name="file" id="videoInput" accept="video/*">
+            </div>
+            <div  class="button-container">
+                <button id="submitdiv" type="submit" class="btn btn-primary" onclick="uploadVideo()" >Upload</button>
+                <button id="downloadButton" class="btn btn-primary" style="display: none;">Download</button>  
+                <a id="downloadLink" style="display: none;">Download</a>  
+            </div>
+        </form>
+        
+    </div>
+    <script src="client.js">
+    </script>
+</body>
+</html>
+
